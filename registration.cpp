@@ -18,7 +18,7 @@ void registerPerson(Person& person) {
     cout << "Enter room number: ";
     cin >> person.roomNumber;
 }
-
+//.........
 int main() {
     int totalPersons;
     cout << "Enter total number of persons to register: ";
