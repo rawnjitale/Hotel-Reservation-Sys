@@ -10,6 +10,8 @@
 #include<algorithm>
 #include <iomanip>
 
+#include <cstring>
+
 using namespace std;
 
 
@@ -73,10 +75,10 @@ pair<int, vector<Room>> countAvailableRooms(const string& filename) {
         while (getline(file, line)) {
             istringstream iss(line);
             string id, type, isAvailableStr,price;
-            getline(iss, id, ' ');
-            getline(iss, type, ' ');
-            getline(iss, isAvailableStr, ' ');
-            getline(iss, price, ' ');
+            getline(iss, id, ',');
+            getline(iss, type, ',');
+            getline(iss, isAvailableStr, ',');
+            getline(iss, price,',');
             bool isAvailable = (isAvailableStr == "true");
             if (isAvailable) {
                 count++;
@@ -102,9 +104,12 @@ vector<Room> searchRoom(string q){
     if (file.is_open()) {
         string line;
         while (getline(file, line)) {
+            istringstream iss(line);
            string type,isAvailable,id,price;
-           
-           file >> id >> type >> isAvailable >>price;
+           getline(iss, id, ',');
+           getline(iss, type, ',');
+           getline(iss, isAvailable, ',');
+           getline(iss, price, ',');
            if(type==q){
                availableRooms.push_back(Room(stoi(id), type,stoi(price)));
            }
@@ -115,8 +120,6 @@ vector<Room> searchRoom(string q){
     }
     return availableRooms;
 
-    // Implement room search functionality here
-    // Open the file, read each line, and search for the room type
 }
 
 #endif
