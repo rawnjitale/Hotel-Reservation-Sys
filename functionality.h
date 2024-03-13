@@ -4,6 +4,7 @@
 #include <string>
 #include<cstring>
 #include "User.h"
+#include "style.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ void register_and_book() {
     cout <<magenta<< "Enter your details to book:" << endl;
     string username, phone_num;
     cout << "Enter your first name: ";
-    cin >> username;
+    cin>>username;
     cout << "Enter your phone number: ";
     cin >> phone_num;
     User user(username, phone_num);
@@ -68,7 +69,7 @@ void register_and_book() {
         rename("temp.txt", "hotelroom.txt");
         cout << magenta<<"Room booked successfully with id of user " << user.getName() <<default << endl;
     } else {
-        cout <<blue<< "Room with ID " << id << " is not found or it is already booked!"<<default << endl;
+        cout << endl<< red<< "Room with ID " << id << " is not found or it is already booked!"<<default << endl;
         remove("temp.txt");
     }
 }
